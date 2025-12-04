@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import assetsData from '../utils/assets.json';
 import { debounce } from '../utils/tools';
-
+import searchIcon from '../assets/icons/search.svg';
 // Icons
 import btcIcon from '../assets/icons/tokens/btc.svg';
 import ethIcon from '../assets/icons/tokens/eth.svg';
@@ -46,14 +46,11 @@ interface SelectPopProps {
 
 /**
  * SelectPop component
- * Displays a bottom sheet to select a token from assets list.
- * Supports searching by name or symbol.
  */
 function SelectPop({ onClose, onSelect, excludeId }: SelectPopProps) {
     const [inputValue, setInputValue] = useState('');
     const [searchKeyword, setSearchKeyword] = useState('');
 
-    // Prevent background scrolling when modal is open
     useEffect(() => {
         document.body.style.overflow = 'hidden';
         return () => {
@@ -113,9 +110,7 @@ function SelectPop({ onClose, onSelect, excludeId }: SelectPopProps) {
                     
                     <div className="bg-[#1e1f20] rounded-xl p-3 tablet:p-4 flex items-center border border-[#333] focus-within:border-[#c4ff48] transition-colors ">
                         <span className='w-6 h-6 tablet:w-8 tablet:h-8 flex items-center justify-center'>
-                            <svg  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-subtext mr-2">
-                            <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
+                            <img src={searchIcon} alt="search" className="w-4 h-4 tablet:w-6 tablet:h-6" />
                         </span>
                         
                         <input 
@@ -124,6 +119,7 @@ function SelectPop({ onClose, onSelect, excludeId }: SelectPopProps) {
                             className="bg-transparent w-full outline-none text-primary placeholder-subtext text-sm tablet:text-xl"
                             value={inputValue}
                             onChange={handleInputChange}
+                            maxLength={20}
                         />
                     </div>
                 </div>
