@@ -66,11 +66,10 @@ function SwapCoin() {
     const handleAssetSelect = (asset: typeof assetsData[0]) => {
         if (selectType === 'from') {
             setFromId(asset.id);
-            setPreSwapAmount(asset.balance);
         } else {
             setToId(asset.id);
-            // When changing 'to' asset, we keep the same 'from' amount, just recalculate swap amount (handled by effect)
         }
+        setPreSwapAmount('');
         setIsSelectOpen(false);
     };
 
@@ -125,7 +124,7 @@ function SwapCoin() {
     }, [preSwapAmount]);
 
     return (
-        <div className="w-full max-w-md mx-auto">
+        <div className=" mobile:w-full tablet:w-full mx-auto">
             {/* Main Card */}
             <div className="rounded-2xl p-4 border border-[#5c5c5c] border-solid bg-transparent relative overflow-hidden">
                 
@@ -140,7 +139,7 @@ function SwapCoin() {
                     <div className="flex justify-between items-center">
                         {/* Coin Selector */}
                         <button 
-                            onClick={() => openSelect('from')}
+                            onTouchStart={() => openSelect('from')}
                             className="flex items-center gap-2 bg-transparent border-none p-0 cursor-pointer hover:opacity-80"
                         >
                             <img src={iconMap[fromAsset.symbol]} alt={fromAsset.symbol} className="w-5 h-5 rounded-full" />
@@ -168,7 +167,7 @@ function SwapCoin() {
                                 placeholder="0"
                             />
                             <button 
-                                onClick={() => setPreSwapAmount(fromAsset.balance)}
+                                onTouchStart={() => setPreSwapAmount(fromAsset.balance)}
                                 className="text-xs font-bold text-[#c4ff48] border border-[#c4ff48] rounded-lg px-2 mt-1  transition-colors"
                             >
                                 MAX
@@ -181,7 +180,7 @@ function SwapCoin() {
                 <div className="relative h-12 flex items-center justify-center">
                     <div className="absolute w-full h-[1px] bg-[#333]"></div>
                     <button 
-                        onClick={handleSwap}
+                        onTouchStart={handleSwap}
                         className="relative z-10 bg-[#0d0e0f] border border-[#333] rounded-full p-2 cursor-pointer hover:border-[#c4ff48] transition-colors group"
                     >
                         <img src={switchIcon} alt="switch" className="w-4 h-4 group-hover:scale-110 transition-transform rotate-90" />
@@ -198,7 +197,7 @@ function SwapCoin() {
                     <div className="flex justify-between items-center">
                         {/* Coin Selector */}
                         <button 
-                            onClick={() => openSelect('to')}
+                            onTouchStart={() => openSelect('to')}
                             className="flex items-center gap-2 bg-transparent border-none p-0 cursor-pointer hover:opacity-80"
                         >
                             <img src={iconMap[toAsset.symbol]} alt={toAsset.symbol} className="w-5 h-5 rounded-full" />

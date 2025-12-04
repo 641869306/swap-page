@@ -5,7 +5,9 @@ import SwapPage from './page/SwapPage';
  * Main App component
  */
 function App() {
-  return <SwapPage />;
+  return <div className='w-screen h-screen'>
+    <SwapPage />
+  </div>
 }
 
 export default App;

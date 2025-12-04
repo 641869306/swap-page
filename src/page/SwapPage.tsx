@@ -9,14 +9,14 @@ import SwapCoin from '../components/SwapCoin';
 function SwapPage() {
   return (
     <>
-      <div className='flex flex-col h-screen bg-[#0d0e0f] text-primary'>
+      <div className='mobile:w-screen tablet:w-screen flex flex-col h-screen bg-[#0d0e0f] text-primary'>
       {/* TopBar */}
       <TopBar />
       
       {/* content area - 占据 TopBar 和 BottomBar 之间的所有剩余空间 */}
       <div className='flex-1 min-h-0 overflow-y-auto'>
         <h2 className='text-2xl font-bold text-center mt-2 mb-6'>Swap</h2>
-        <section className='mx-4'>
+        <section className='mobile:mx-4 tablet:mx-20'>
           <SwapCoin />
         </section>
         

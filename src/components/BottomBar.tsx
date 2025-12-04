@@ -66,7 +66,7 @@ function BottomBar() {
           return (
             <li
               key={item.label}
-              onClick={() => handleItemClick(index)}
+              onTouchStart={() => handleItemClick(index)}
               className={`
                 flex flex-col items-center justify-center gap-1
                 cursor-pointer
