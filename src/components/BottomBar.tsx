@@ -72,7 +72,7 @@ function BottomBar() {
                 cursor-pointer
                 transition-all duration-300 ease-in-out
                 ${isActive 
-                  ? 'bg-actived w-12 h-12 tablet:w-20 tablet:h-14 rounded-2xl' 
+                  ? 'bg-actived w-10 h-10 tablet:w-20 tablet:h-14  rounded-xl tablet:rounded-2xl' 
                   : 'bg-transparent'
                 }
               `}

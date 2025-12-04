@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import assetsData from '../utils/assets.json';
 import { debounce } from '../utils/tools';
 
@@ -52,6 +52,14 @@ interface SelectPopProps {
 function SelectPop({ onClose, onSelect, excludeId }: SelectPopProps) {
     const [inputValue, setInputValue] = useState('');
     const [searchKeyword, setSearchKeyword] = useState('');
+
+    // Prevent background scrolling when modal is open
+    useEffect(() => {
+        document.body.style.overflow = 'hidden';
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, []);
 
     // Debounce the search keyword update
     const handleSearchDebounced = useMemo(

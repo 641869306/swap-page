@@ -18,7 +18,7 @@ import usdIcon from '../assets/icons/currencies/usd.png';
 import jpyIcon from '../assets/icons/currencies/jpy.png';
 import hkdIcon from '../assets/icons/currencies/hkd.png';
 import gbpIcon from '../assets/icons/currencies/gbp.png';
-import cnyIcon from '../assets/icons/currencies/rmb.png'; // rmb.png for CNY
+import cnyIcon from '../assets/icons/currencies/rmb.png'; 
 import eurIcon from '../assets/icons/currencies/eur.png';
 
 // Map symbols to icons
@@ -151,10 +151,14 @@ function SwapCoin() {
 
                             {/* Input Area */}
                             <input 
-                                type="number" 
+                                type="text"
+                                inputMode="decimal"
                                 value={preSwapAmount}
                                 onChange={(e) => {
                                     const val = e.target.value;
+                                    // Filter non-numbers and dots
+                                    if (!/^\d*\.?\d*$/.test(val)) return;
+
                                     // Max length check could be added here if needed
                                     const valNum = parseFloat(val);
                                     const balNum = parseFloat(fromAsset.balance);
@@ -211,10 +215,14 @@ function SwapCoin() {
 
                             {/* Output Area */}
                             <input 
-                                type="number" 
+                                type="text"
+                                inputMode="decimal"
                                 value={swapedAmount > 0 ? Number(parseFloat(swapedAmount.toFixed(5))) : ''}
                                 onChange={(e) => {
                                     const val = e.target.value;
+                                    // Filter non-numbers and dots
+                                    if (!/^\d*\.?\d*$/.test(val)) return;
+
                                     if (!val) {
                                         setSwapedAmount(0.00);
                                         setPreSwapAmount('');
