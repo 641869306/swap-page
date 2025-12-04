@@ -15,8 +15,8 @@ function SwapPage() {
       
       {/* content area - 占据 TopBar 和 BottomBar 之间的所有剩余空间 */}
       <div className='flex-1 min-h-0 overflow-y-auto'>
-        <h2 className='text-2xl font-bold text-center mt-2 mb-6'>Swap</h2>
-        <section className='mobile:mx-4 tablet:mx-20'>
+        <h2 className='mobile:text-2xl tablet:text-6xl font-bold text-center mobile:mt-2 tablet:mt-6 mobile:mb-6 tablet:mb-12'>Swap</h2>
+        <section className='mx-4 tablet:mx-20'>
           <SwapCoin />
         </section>
         

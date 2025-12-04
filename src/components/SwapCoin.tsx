@@ -124,31 +124,32 @@ function SwapCoin() {
     }, [preSwapAmount]);
 
     return (
-        <div className=" mobile:w-full tablet:w-full mx-auto">
+        <div className="mobile:w-full tablet:w-full mx-auto">
             {/* Main Card */}
-            <div className="rounded-2xl p-4 border border-[#5c5c5c] border-solid bg-transparent relative overflow-hidden">
+            <div className="rounded-2xl p-4 tablet:p-6 border border-[#5c5c5c] border-solid bg-transparent relative overflow-hidden">
                 
                 {/* From Section */}
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-2 tablet:gap-6">
                     <div className="flex justify-between text-subtext text-sm font-medium items-end">
-                        <span className="text-primary text-lg font-bold">From</span>
-                        <span className="text-subtext text-xs font-medium">Balance: {formatBalance(fromAsset.balance)}</span>
+                        <span className="text-base tablet:text-4xl text-primary font-bold">From</span>
+                        <span className="text-xs tablet:text-lg text-subtext font-medium">Balance: {formatBalance(fromAsset.balance)}</span>
                     </div>
                     
                     
-                    <div className="flex justify-between items-center">
-                        {/* Coin Selector */}
-                        <button 
-                            onTouchStart={() => openSelect('from')}
-                            className="flex items-center gap-2 bg-transparent border-none p-0 cursor-pointer hover:opacity-80"
-                        >
-                            <img src={iconMap[fromAsset.symbol]} alt={fromAsset.symbol} className="w-5 h-5 rounded-full" />
-                            <span className="text-primary text-xs font-bold">{fromAsset.symbol}</span>
-                            <img src={dropdownIcon} alt="v" className="w-3 h-4 opacity-60" />
-                        </button>
+                    <div className="flex flex-col w-full gap-1 tablet:gap-2">
+                        <div className="flex justify-between items-center">
+                            {/* Coin Selector */}
+                            {/* onTouchStart={() => openSelect('from')} */}
+                            <button 
+                                onTouchStart={() => openSelect('from')} 
+                                className="flex items-center gap-2 bg-transparent border-none p-0 cursor-pointer hover:opacity-80"
+                            >
+                                <img src={iconMap[fromAsset.symbol]} alt={fromAsset.symbol} className="w-5 h-5 tablet:w-7 tablet:h-7 rounded-full" />
+                                <span className="text-xs tablet:text-xl text-primary font-bold">{fromAsset.symbol}</span>
+                                <img src={dropdownIcon} alt="v" className="w-4 h-6 tablet:w-6 tablet:h-7 opacity-60" />
+                            </button>
 
-                        {/* Input Area */}
-                        <div className="flex flex-col items-end">
+                            {/* Input Area */}
                             <input 
                                 type="number" 
                                 value={preSwapAmount}
@@ -163,12 +164,14 @@ function SwapCoin() {
                                         setPreSwapAmount(val);
                                     }
                                 }}
-                                className="bg-transparent text-right text-2xl font-bold text-primary outline-none w-40 placeholder-gray-600 m-0 p-0 border-none no-spinners"
+                                className="bg-transparent text-right text-2xl tablet:text-4xl font-bold text-primary outline-none w-40 placeholder-gray-600 m-0 p-0 border-none no-spinners"
                                 placeholder="0"
                             />
+                        </div>
+                        <div className="flex justify-end w-full">
                             <button 
                                 onTouchStart={() => setPreSwapAmount(fromAsset.balance)}
-                                className="text-xs font-bold text-[#c4ff48] border border-[#c4ff48] rounded-lg px-2 mt-1  transition-colors"
+                                className="text-xs tablet:text-base font-bold text-[#c4ff48] border border-[#c4ff48] rounded-3xl px-2 tablet:px-4 mt-1 tablet:mt-4 transition-colors"
                             >
                                 MAX
                             </button>
@@ -177,36 +180,36 @@ function SwapCoin() {
                 </div>
 
                 {/* Divider & Switch */}
-                <div className="relative h-12 flex items-center justify-center">
+                <div className="relative h-12 flex items-center justify-center tablet:mb-4">
                     <div className="absolute w-full h-[1px] bg-[#333]"></div>
                     <button 
                         onTouchStart={handleSwap}
                         className="relative z-10 bg-[#0d0e0f] border border-[#333] rounded-full p-2 cursor-pointer hover:border-[#c4ff48] transition-colors group"
                     >
-                        <img src={switchIcon} alt="switch" className="w-4 h-4 group-hover:scale-110 transition-transform rotate-90" />
+                        <img src={switchIcon} alt="switch" className="w-4 h-4 tablet:w-8 tablet:h-8 group-hover:scale-110 transition-transform rotate-90" />
                     </button>
                 </div>
 
                 {/* To Section */}
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-2 tablet:gap-6">
                     <div className="flex justify-between text-subtext text-sm font-medium items-end">
-                        <span className="text-primary text-lg font-bold">To</span>
-                        <span className="text-subtext text-xs font-medium">Balance: {formatBalance(toAsset.balance)}</span>
+                        <span className="text-base tablet:text-4xl text-primary font-bold">To</span>
+                        <span className="text-xs tablet:text-lg text-subtext font-medium">Balance: {formatBalance(toAsset.balance)}</span>
                     </div>
                     
-                    <div className="flex justify-between items-center">
-                        {/* Coin Selector */}
-                        <button 
-                            onTouchStart={() => openSelect('to')}
-                            className="flex items-center gap-2 bg-transparent border-none p-0 cursor-pointer hover:opacity-80"
-                        >
-                            <img src={iconMap[toAsset.symbol]} alt={toAsset.symbol} className="w-5 h-5 rounded-full" />
-                            <span className="text-primary text-xs font-bold">{toAsset.symbol}</span>
-                            <img src={dropdownIcon} alt="v" className="w-3 h-4 opacity-60" />
-                        </button>
+                    <div className="flex flex-col w-full gap-1  tablet:gap-2">
+                        <div className="flex justify-between items-center">
+                            {/* Coin Selector */}
+                            <button 
+                                onTouchStart={() => openSelect('to')}
+                                className="flex items-center gap-2 bg-transparent border-none p-0 cursor-pointer hover:opacity-80"
+                            >
+                                <img src={iconMap[toAsset.symbol]} alt={toAsset.symbol} className="w-5 h-5 tablet:w-7 tablet:h-7 rounded-full" />
+                                <span className="text-xs tablet:text-xl text-primary font-bold">{toAsset.symbol}</span>
+                                <img src={dropdownIcon} alt="v" className="w-4 h-6 tablet:w-6 tablet:h-7 opacity-60" />
+                            </button>
 
-                        {/* Output Area */}
-                        <div className="flex flex-col items-end">
+                            {/* Output Area */}
                             <input 
                                 type="number" 
                                 value={swapedAmount > 0 ? Number(parseFloat(swapedAmount.toFixed(5))) : ''}
@@ -228,10 +231,12 @@ function SwapCoin() {
                                         setPreSwapAmount(parseFloat(newPre.toFixed(5)).toString());
                                     }
                                 }}
-                                className="bg-transparent text-right text-2xl font-bold text-primary outline-none w-40 placeholder-gray-600 m-0 p-0 border-none no-spinners"
+                                className="bg-transparent text-right text-2xl tablet:text-4xl font-bold text-primary outline-none w-40 placeholder-gray-600 m-0 p-0 border-none no-spinners"
                                 placeholder="0.00"
                             />
-                            <span className="text-xs text-subtext mt-1">
+                        </div>
+                        <div className="flex justify-end w-full">
+                            <span className="text-xs tablet:text-lg text-subtext mt-1 tablet:mt-4">
                                 1 {fromAsset.symbol} : {formatOutput(rate)} {toAsset.symbol}
                             </span>
                         </div>
@@ -241,19 +246,19 @@ function SwapCoin() {
 
             {/* Info Footer */}
             <div className="mt-4 px-2 w-full">
-                <div className="flex justify-between items-center text-subtext text-sm mb-6">
+                <div className="flex justify-between items-center text-subtext text-sm tablet:text-xl mb-6">
                     <span>Fee:</span>
                     <span>Waived</span>
                 </div>
 
-                <p className="text-subtext text-sm leading-relaxed mb-6">
+                <p className="text-subtext text-sm tablet:text-xl leading-relaxed mb-6 tablet:mb-12">
                     * Exchange rates may vary with market changes. Final amounts depend on current rates and are not guaranteed. Users accept the risk of rate fluctuations.
                 </p>
                
-                <div className="w-full px-2">
+                <div className="w-full px-2 tablet:px-12">
                     <button 
                         disabled={!isValidInput}
-                        className={`w-full font-[600] text-base p-2 rounded-lg transition-all ${
+                        className={`w-full font-[600] text-bas tablet:text-3xl py-4 tablet:p-5 rounded-lg tablet:rounded-xl transition-all ${
                             isValidInput 
                             ? "bg-actived text-black hover:opacity-90 shadow-[0_0_15px_rgba(196,255,72,0.3)]" 
                             : "bg-[#282828] text-[#000000] cursor-not-allowed"

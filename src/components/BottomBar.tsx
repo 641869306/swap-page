@@ -60,7 +60,7 @@ function BottomBar() {
 
   return (
     <nav className="w-full bg-black pb-safe-bottom">
-      <ul className="flex items-center justify-between px-6 py-4">
+      <ul className="flex items-center justify-between tablet:justify-center tablet:gap-16 px-6 tablet:px-12 py-4 tablet:py-6">
         {navItems.map((item, index) => {
           const isActive = activeIndex === index;
           return (
@@ -72,7 +72,7 @@ function BottomBar() {
                 cursor-pointer
                 transition-all duration-300 ease-in-out
                 ${isActive 
-                  ? 'bg-actived w-12 h-12 rounded-2xl' 
+                  ? 'bg-actived w-12 h-12 tablet:w-20 tablet:h-14 rounded-2xl' 
                   : 'bg-transparent'
                 }
               `}
@@ -82,12 +82,12 @@ function BottomBar() {
                 alt={item.label}
                 className={`
                   transition-all duration-300 ease-in-out
-                  ${isActive ? 'w-6 h-6' : 'w-5 h-5'}
+                  ${isActive ? 'w-6 h-6 tablet:w-8 tablet:h-8' : 'w-5 h-5 tablet:w-9 tablet:h-9'}
                 `}
               />
               <span
                 className={`
-                  text-primary text-xs font-medium whitespace-nowrap
+                  text-primary text-xs tablet:text-lg font-medium whitespace-nowrap
                   transition-all duration-300 ease-in-out 
                   ${isActive 
                     ? 'opacity-0 max-h-0 w-0 overflow-hidden' 

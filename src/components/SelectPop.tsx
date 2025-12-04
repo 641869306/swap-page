@@ -96,21 +96,24 @@ function SelectPop({ onClose, onSelect, excludeId }: SelectPopProps) {
                 
                 {/* Handle bar for visual cue */}
                 <div className="flex justify-center pt-3 pb-1">
-                    <div className="w-12 h-1 bg-[#333] rounded-full" onClick={onClose}></div>
+                    <div className="w-12 tablet:w-24 h-1 tablet:h-2 bg-[#e1e3e3] rounded-full" onClick={onClose}></div>
                 </div>
 
                 {/* Header & Search */}
-                <div className="px-4 pb-2">
-                    <h2 className="text-center font-bold text-lg mb-4 mt-2">Select Token</h2>
+                <div className="px-4 tablet:px-6 pb-2">
+                    <h2 className="text-center font-bold text-lg tablet:text-3xl mb-4 tablet:mb-6 mt-2 tablet:mt-3">Select Token</h2>
                     
-                    <div className="bg-[#1e1f20] rounded-xl p-3 flex items-center border border-[#333] focus-within:border-[#c4ff48] transition-colors">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-subtext mr-2">
+                    <div className="bg-[#1e1f20] rounded-xl p-3 tablet:p-4 flex items-center border border-[#333] focus-within:border-[#c4ff48] transition-colors ">
+                        <span className='w-6 h-6 tablet:w-8 tablet:h-8 flex items-center justify-center'>
+                            <svg  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-subtext mr-2">
                             <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
+                        </span>
+                        
                         <input 
                             type="text" 
                             placeholder="Search"
-                            className="bg-transparent w-full outline-none text-primary placeholder-subtext text-sm"
+                            className="bg-transparent w-full outline-none text-primary placeholder-subtext text-sm tablet:text-xl"
                             value={inputValue}
                             onChange={handleInputChange}
                         />
@@ -118,28 +121,28 @@ function SelectPop({ onClose, onSelect, excludeId }: SelectPopProps) {
                 </div>
 
                 {/* Token List */}
-                <div className="flex-1 overflow-y-auto custom-scrollbar px-2 overscroll-contain scroll-touch">
+                <div className="flex-1 overflow-y-auto custom-scrollbar px-2  tablet:px-6 overscroll-contain scroll-touch">
                     {filteredAssets.map(asset => (
                         <div 
                             key={asset.id} 
                             onClick={() => onSelect(asset)}
-                            className="flex justify-between items-center p-3 hover:bg-[#1e1f20] rounded-xl cursor-pointer transition-colors group"
+                            className="flex justify-between items-center  p-3 tablet:p-4 hover:bg-[#1e1f20] rounded-xl cursor-pointer transition-colors group"
                         >
-                            <div className="flex items-center gap-3">
+                            <div className="flex items-center gap-3 tablet:gap-6">
                                 <img 
                                     src={iconMap[asset.symbol]} 
                                     alt={asset.symbol} 
-                                    className="w-7 h-7 rounded-full"
+                                    className="w-7 h-7 tablet:w-12 tablet:h-12 rounded-full"
                                 />
-                                <div className="flex flex-col">
-                                    <span className="font-bold text-lg">{asset.name}</span>
-                                    <span className="text-sm text-subtext uppercase">{asset.symbol}</span>
+                                <div className="flex flex-col gap-1 tablet:gap-2">
+                                    <span className="font-bold text-lg tablet:text-2xl">{asset.name}</span>
+                                    <span className="text-sm tablet:text-lg font-bold text-subtext uppercase">{asset.symbol}</span>
                                 </div>
                             </div>
                             
-                            <div className="flex flex-col items-end">
-                                <span className="font-medium text-sm">{parseFloat(asset.balance) > 0 ? asset.balance : '0'}</span>
-                                <span className="text-xs text-subtext">≈ ${asset.usdValue}</span>
+                            <div className="flex flex-col items-end gap-1 tablet:gap-2">
+                                <span className="font-bold text-sm tablet:text-2xl">{parseFloat(asset.balance) > 0 ? asset.balance : '0'}</span>
+                                <span className="text-sm tablet:text-lg font-bold text-subtext">≈ ${asset.usdValue}</span>
                             </div>
                         </div>
                     ))}
