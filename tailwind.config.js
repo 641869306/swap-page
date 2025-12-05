@@ -29,6 +29,9 @@ module.exports = {
         laptop: "1024px",
         desktop: "1280px",
       },
+      height: {
+        "screen-dynamic": "calc(var(--vh, 1vh) * 100)",
+      },
     },
   },
   plugins: [],

@@ -9,7 +9,7 @@ import SwapCoin from '../components/SwapCoin';
 function SwapPage() {
   return (
     <>
-      <div className='w-screen flex flex-col h-screen bg-[#0d0e0f] text-primary'>
+      <div className='w-screen flex flex-col h-screen-dynamic bg-[#0d0e0f] text-primary'>
       {/* TopBar */}
       <TopBar />
       

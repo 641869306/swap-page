@@ -5,7 +5,7 @@ import SwapPage from './page/SwapPage';
  * Main App component
  */
 function App() {
-  return <div className='w-screen h-screen'>
+  return <div className='w-screen h-screen-dynamic'>
     <SwapPage />
   </div>
 }
