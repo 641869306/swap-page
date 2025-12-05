@@ -5,7 +5,7 @@ It implements a token swap view with input validation, token selection popups, a
 
 ## Tech Stack
 
-- **Framework**: React (Create React App)
+- **Framework**: React19 (Create React App)
 - **Language**: TypeScript
 - **Styling**: CSS with Tailwind CSS utility support
 - **Build Tooling**: `react-scripts` (Webpack/Babel under the hood)
